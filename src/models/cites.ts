@@ -6,6 +6,4 @@ export interface Cite {
     userId : string,
     _id? : string,
     check : boolean
-
-
 }

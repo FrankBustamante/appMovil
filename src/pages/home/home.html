@@ -1,23 +1,23 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Home</ion-title>
+    <button ion-button >
+      Cerrar Cesion
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Tus Citas</h2>
   
-  <ion-list>
-  <ion-item *ngFor=" let c of cites ">
-    <p>{{ c.name }}</p>
-    <p> {{ c.lastName }} </p>
-    <p>{{ c.password }} </p>
-    <p> {{c._id}} </p>
-    <button (click)="delete(c._id)">eliminar
+  <button ion-button secondary (click)="openNewCite()" >
+    Solicitar cita
   </button>
-  </ion-item>
-  </ion-list>
 
-
-
+   <button ion-button primary (click)="openCites()" >
+      Ver Citas
+    </button>
 </ion-content>

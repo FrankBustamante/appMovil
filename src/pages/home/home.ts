@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { CitesProvider } from '../../providers/cites/cites';
-import { Cite } from '../../models/cites'
+import { ListPage }from '../list/list';
+import { CitePage }from '../cite/cite';
 
 @Component({
   selector: 'page-home',
@@ -9,22 +9,21 @@ import { Cite } from '../../models/cites'
 })
 export class HomePage {
 
-	cites : any;
+  constructor(public navCtrl: NavController) {
 
-  constructor(public navCtrl: NavController, public citesS: CitesProvider) {
-  		this.getCites();
   }
 
-getCites(){
-  	console.log("citas");
-  	this.citesS.getCites().add(s=>{
-  		this.cites = this.citesS.cites;
-  	})
-}
+  openCites(){
+  	this.navCtrl.push(ListPage);
+  }
 
-delete(id:string){
-	console.log("eliminando")
-	this.citesS.deleteProduct(id);
-}
+  openNewCite(){
+  	this.navCtrl.push(CitePage);
+  }
+
+  logOut(){
+
+  }
+
 
 }

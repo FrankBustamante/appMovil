@@ -1,14 +1,8 @@
-
-  import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http'
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
-import { catchError, retry } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
-
+import { HttpClient, HttpHeaders, HttpErrorResponse  } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Cite } from '../../models/cites';
-import { User } from '../../models/user';
+import 'rxjs/add/operator/map';
+import { environment }from '../../environments/environments'
 
 /*
   Generated class for the CitesProvider provider.
@@ -19,61 +13,71 @@ import { User } from '../../models/user';
 @Injectable()
 export class CitesProvider {
 
-constructor(private http:Http,private httpC:HttpClient) { }
+	urlApi:string="https://api-movil.herokuapp.com/api/cite";
+  url ="http://localhost:3000/api/cite/user";
+  cites:Cite;
+  httpOptions = {
+        headers: new HttpHeaders({'Athoriation': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})};
 
-   urlApi:string="http://localhost:3000/api/cite";
-   cites:User;
+ 	constructor(public http: HttpClient) {
+		console.log('Hello CitesProvider Provider');
+  	}
 
-
-   
-
-  
-
-  getCites(){
-      //let token =this.auth.getToken();  
-  		//let headers = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
-      
-  	return	this.http.get(this.urlApi)
-  		     .subscribe(res=>{
-  		     	this.cites = res.json();
-  	        	console.log("res "+res.json())
-  	        })
-  }
+   	getCites(){
+     
+     return new Promise(resolve =>{
+      this.http.get(`${this.url}/${environment.user._id}`,this.httpOptions)
+           .subscribe(res=>{
+             this.cites = res as Cite;
+              console.log("res "+res)
+            })
+    })	
+  	}
 
  
 
-  postProduct(cite:Cite){
+  postCites(cite: Cite){
     //let token =this.auth.getToken();
    // let headerT = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
    
-    return this.http.post(this.urlApi,cite,)
+    return new Promise(resolve =>{
+      console.log(`em porceso cita.. ${environment.TOKEN}`)
+      this.http.post(this.urlApi,cite,this.httpOptions)
          .map(res =>{
-
+            let r:any = res;
+             r.ok;
+             resolve({ ok: r.ok })
          }).subscribe(res=>{
              console.log(res);
          });
+    })
          
   }
 
-  putProduct(cite:Cite){
+  putCite(cite:Cite){
       //let token =this.auth.getToken();
       /*const httpOptions = {
         headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 	*/
-      return this.httpC.put(`${this.urlApi}/`,cite).map(res =>{});
+      return new Promise(resolve =>{
+        this.http.put(`${this.urlApi}/`,cite, this.httpOptions)
+        .map(res =>{});
+      })
     }
 
-  deleteProduct(id:string){
+  deleteCite(id:string){
    // let token =this.auth.getToken();
     //const httpOptions = {
       //headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 
-    return this.http.delete(`${this.urlApi}/${id}`)
+    return new Promise(reolve =>{
+      this.http.delete(`${this.urlApi}/${id}`,this.httpOptions)
          .map(res =>{
-         	console.log("eliminado")
+           console.log("eliminado")
          }).subscribe(res=>{
 
          });
+    })
   }
 
 
