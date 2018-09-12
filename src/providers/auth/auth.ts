@@ -28,7 +28,7 @@ export class AuthProvider {
         headers: new HttpHeaders({'Content-Type': 'application/json','Accept':'application/json'})};
 
 
-    return new Promise( (resolve) => {this.http.post(this.url,{email: email, password: pass}, httpOptions)
+    return new Promise( (resolve) => {this.http.post(this.urlApi,{email: email, password: pass}, httpOptions)
                   .map(res =>{
                     this.resp = res;  
                     resolve (res);

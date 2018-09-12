@@ -9,10 +9,10 @@ import { Cite } from '../../models/cites';
 })
 export class ListPage {
   
-  cites: Cite;
+  cites;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public citesS: CitesProvider) {
-  this.getCites();
+    this.getCites();
   }
 
 

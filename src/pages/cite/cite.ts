@@ -20,8 +20,8 @@ export class CitePage {
 	cite: Cite = {
 		date: "",
 	    type : "",
-	    medicId :"77788",
-	    userId : environment.user._id,
+	    medic :"77788",
+	    pacient : environment.user._id,
 	    check : null
 	}
 

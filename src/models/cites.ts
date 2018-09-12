@@ -2,8 +2,8 @@
 export interface Cite {
     date: string,
     type : string,
-    medicId :string,
-    userId : string,
+    medic :string,
+    pacient : string,
     _id? : string,
     check : boolean
 }

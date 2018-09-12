@@ -17,7 +17,7 @@ export class CitesProvider {
   url ="http://localhost:3000/api/cite/user";
   cites:Cite;
   httpOptions = {
-        headers: new HttpHeaders({'Athoriation': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})};
+        headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})};
 
  	constructor(public http: HttpClient) {
 		console.log('Hello CitesProvider Provider');
@@ -26,7 +26,7 @@ export class CitesProvider {
    	getCites(){
      
      return new Promise(resolve =>{
-      this.http.get(`${this.url}/${environment.user._id}`,this.httpOptions)
+      this.http.get(`${this.urlApi}/user/${environment.user._id}`,this.httpOptions)
            .subscribe(res=>{
              this.cites = res as Cite;
               console.log("res "+res)
