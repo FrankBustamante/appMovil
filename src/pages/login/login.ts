@@ -2,6 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider }from '../../providers/auth/auth';
 import { HomePage } from '../home/home';
+import { ProfilePage }from '../profile/profile';
+import { TabsPage }from '../tabs/tabs';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { environment }from '../../environments/environments'
 
 /**
@@ -21,7 +27,7 @@ export class LoginPage {
 	email: string;
 	pass: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthProvider,) {
   }
 
   ionViewDidLoad() {
@@ -35,8 +41,7 @@ export class LoginPage {
         environment.TOKEN = this.auth.resp.token;
         environment.user = this.auth.resp.user;
 
-  			console.log(`token ${environment.TOKEN} user ${this.auth.resp.user} `);
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(TabsPage);
   		}
   	})
   }

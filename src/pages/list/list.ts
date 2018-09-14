@@ -9,17 +9,29 @@ import { Cite } from '../../models/cites';
 })
 export class ListPage {
   
-  cites;
+  cites:Cite;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public citesS: CitesProvider) {
-    this.getCites();
+    this.getCites();  
   }
 
 
   getCites(){
-    this.citesS.getCites().then(resolve =>{
-      this.cites = this.citesS.cites;
-    });
+           
+    this.citesS.getCites().then((resolve) =>{
+      let r: any = resolve;
+      this.cites = r.cites;
+    });    
+  }
+
+  deleteCite(cite){
+    if(confirm('desea elminar la cita??')){
+      this.citesS.deleteCite(cite).then(resolve =>{
+        this.getCites();
+        console.log("obteniendo")
+      });  
+    }
+    
   }
 
 }

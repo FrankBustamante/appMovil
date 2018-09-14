@@ -15,7 +15,9 @@ import { User } from '../../models/user';
 export class UsersProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/user";
-    users: User;
+  urlLocal = "http://localHost:3000/api/user";
+  url= this.urlApi;
+  users: User;
 
   constructor(public http: HttpClient) {
     console.log('Hello UsersProvider Provider');
@@ -25,7 +27,7 @@ export class UsersProvider {
       //let token =this.auth.getToken();  
   		//let headers = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
       
-  	return	this.http.get(this.urlApi)
+  	return	this.http.get(this.url)
   		     .subscribe(res=>{
   		     	this.users = res as User;
   	        	console.log("res "+res)
@@ -38,7 +40,7 @@ export class UsersProvider {
     //let token =this.auth.getToken();
    // let headerT = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
    
-    return this.http.post(this.urlApi,user,)
+    return this.http.post(this.url,user,)
          .map(res =>{
 
          }).subscribe(res=>{
@@ -52,7 +54,7 @@ export class UsersProvider {
       /*const httpOptions = {
         headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 	*/
-      return this.http.put(`${this.urlApi}/`,user).map(res =>{
+      return this.http.put(`${this.url}/`,user).map(res =>{
 
       });
     }
@@ -62,7 +64,7 @@ export class UsersProvider {
     //const httpOptions = {
       //headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 
-    return this.http.delete(`${this.urlApi}/${id}`)
+    return this.http.delete(`${this.url}/${id}`)
          .map(res =>{
          	console.log("eliminado")
          }).subscribe(res=>{

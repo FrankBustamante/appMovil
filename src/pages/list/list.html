@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Lista de Citas</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -13,6 +13,7 @@
       <p> {{c.type}} </p>
       <p> {{c.medic}} </p>
       <p> {{c.date}} </p>
+      <button ion-button color="danger" (click)="deleteCite(c)" ><ion-icon name="trash"></ion-icon></button> 
     </ion-item>
   </ion-list>
   

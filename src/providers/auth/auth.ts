@@ -14,7 +14,8 @@ import { environment } from '../../environments/environments';
 export class AuthProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/login";
-  url="http://localhost:3000/api/login"
+  urlLocal= "http://localhost:3000/api/login";
+  url=this.urlApi;
 	resp: any;
 
   constructor(public http: HttpClient) {
@@ -28,7 +29,7 @@ export class AuthProvider {
         headers: new HttpHeaders({'Content-Type': 'application/json','Accept':'application/json'})};
 
 
-    return new Promise( (resolve) => {this.http.post(this.urlApi,{email: email, password: pass}, httpOptions)
+    return new Promise( (resolve) => {this.http.post(this.url,{email: email, password: pass}, httpOptions)
                   .map(res =>{
                     this.resp = res;  
                     resolve (res);

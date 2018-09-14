@@ -14,7 +14,8 @@ import { environment }from '../../environments/environments'
 export class CitesProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/cite";
-  url ="http://localhost:3000/api/cite/user";
+  urlLocal="http://localhost:3000/api/cite";
+  url = this.urlLocal;
   cites:Cite;
   httpOptions = {
         headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})};
@@ -24,14 +25,27 @@ export class CitesProvider {
   	}
 
    	getCites(){
-     
-     return new Promise(resolve =>{
-      this.http.get(`${this.urlApi}/user/${environment.user._id}`,this.httpOptions)
-           .subscribe(res=>{
-             this.cites = res as Cite;
-              console.log("res "+res)
+
+        return new Promise((resolve, reject) =>{
+          try{
+            this.http.get(`${this.url}/user/${environment.user._id}`,this.httpOptions)
+            .map(res =>{
+              console.log(res);
+              const r:any = res;
+              resolve({ cites: r.cites });
+              this.cites = r.cites as Cite;
             })
-    })	
+            .subscribe(ress=>{
+              
+            })
+          }catch{
+            reject({ ok:false })
+          }
+        
+      })
+     
+           
+    	
   	}
 
  
@@ -42,7 +56,7 @@ export class CitesProvider {
    
     return new Promise(resolve =>{
       console.log(`em porceso cita.. ${environment.TOKEN}`)
-      this.http.post(this.urlApi,cite,this.httpOptions)
+      this.http.post(this.url,cite,this.httpOptions)
          .map(res =>{
             let r:any = res;
              r.ok;
@@ -60,19 +74,20 @@ export class CitesProvider {
         headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 	*/
       return new Promise(resolve =>{
-        this.http.put(`${this.urlApi}/`,cite, this.httpOptions)
+        this.http.put(`${this.url}/`,cite, this.httpOptions)
         .map(res =>{});
       })
     }
 
-  deleteCite(id:string){
+  deleteCite(cite:Cite){
    // let token =this.auth.getToken();
     //const httpOptions = {
       //headers: new HttpHeaders({'Authorization': `Bearer ${token.token}`,'Content-Type':  'application/json','Accept':'application/json'})};
 
-    return new Promise(reolve =>{
-      this.http.delete(`${this.urlApi}/${id}`,this.httpOptions)
+    return new Promise(resolve =>{
+      this.http.delete(`${this.url}/${cite._id}`,this.httpOptions)
          .map(res =>{
+           resolve({ ok: true });
            console.log("eliminado")
          }).subscribe(res=>{
 
