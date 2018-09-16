@@ -1,17 +1,26 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      My Perfil
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
+    <ion-list-header>Imformacion personal</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      <ion-icon name="person" item-start ></ion-icon>
+        <p>Nombre: {{user.name}}</p>
+       <p>Apellido: {{user.lastName}} </p>
+    </ion-item>
+    <ion-item>
+    <ion-icon name="call" item-start ></ion-icon>
+    <p> {{user.phone}} </p>
+    </ion-item>  
+    <ion-item>
+      <ion-icon name="mail" item-start ></ion-icon>
+      <p> {{user.email}} </p>
     </ion-item>
   </ion-list>
 </ion-content>

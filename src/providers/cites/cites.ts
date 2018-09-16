@@ -15,13 +15,13 @@ export class CitesProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/cite";
   urlLocal="http://localhost:3000/api/cite";
-  url = this.urlLocal;
+  url = this.urlApi;
   cites:Cite;
   httpOptions = {
-        headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})};
+        headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})
+      };
 
  	constructor(public http: HttpClient) {
-		console.log('Hello CitesProvider Provider');
   	}
 
    	getCites(){
@@ -30,7 +30,6 @@ export class CitesProvider {
           try{
             this.http.get(`${this.url}/user/${environment.user._id}`,this.httpOptions)
             .map(res =>{
-              console.log(res);
               const r:any = res;
               resolve({ cites: r.cites });
               this.cites = r.cites as Cite;
@@ -55,14 +54,12 @@ export class CitesProvider {
    // let headerT = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
    
     return new Promise(resolve =>{
-      console.log(`em porceso cita.. ${environment.TOKEN}`)
       this.http.post(this.url,cite,this.httpOptions)
          .map(res =>{
             let r:any = res;
              r.ok;
              resolve({ ok: r.ok })
          }).subscribe(res=>{
-             console.log(res);
          });
     })
          
@@ -88,7 +85,6 @@ export class CitesProvider {
       this.http.delete(`${this.url}/${cite._id}`,this.httpOptions)
          .map(res =>{
            resolve({ ok: true });
-           console.log("eliminado")
          }).subscribe(res=>{
 
          });

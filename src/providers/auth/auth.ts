@@ -33,7 +33,6 @@ export class AuthProvider {
                   .map(res =>{
                     this.resp = res;  
                     resolve (res);
-                    console.log(`res ${this.resp.token} i ${this.resp.ok} `);
                   })
                   .subscribe()
     })

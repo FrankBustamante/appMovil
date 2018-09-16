@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ListPage }from '../list/list';
 import { CitePage }from '../cite/cite';
+import { LoginPage }from '../login/login';
 import { environment }from '../../environments/environments';
 
 @Component({
@@ -25,7 +26,11 @@ export class HomePage {
   }
 
   logOut(){
-
+    environment.user = null;
+    environment.TOKEN = null;
+    console.log(`token: ${environment.TOKEN}  user: ${environment
+      .user}`);
+    this.navCtrl.setRoot(LoginPage);
   }
 
   openPage(page) {

@@ -19,22 +19,23 @@ import { environment }from '../../environments/environments';
 export class CitePage {
 	cite: Cite = {
 		date: "",
-	    type : "",
-	    medic :"77788",
-	    pacient : environment.user._id,
-	    check : null
+    type : "",
+    medic :"77788",
+    pacient : environment.user._id,
+    check : null
 	}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public citeS: CitesProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CitePage');
   }
 
   addCite(){
   	this.citeS.postCites(this.cite).then(resolve =>{
-  		
+  		this.cite.type = "";
+      this.cite.medic = "";
+      this.cite.date ="";
   	})
   }
 

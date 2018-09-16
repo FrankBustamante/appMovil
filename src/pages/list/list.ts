@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CitesProvider }from '../../providers/cites/cites';
 import { Cite } from '../../models/cites';
@@ -11,10 +11,12 @@ export class ListPage {
   
   cites:Cite;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public citesS: CitesProvider) {
-    this.getCites();  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public citesS: CitesProvider) {  
   }
 
+ ionViewWillEnter(){
+    this.getCites();
+  }
 
   getCites(){
            
@@ -28,7 +30,6 @@ export class ListPage {
     if(confirm('desea elminar la cita??')){
       this.citesS.deleteCite(cite).then(resolve =>{
         this.getCites();
-        console.log("obteniendo")
       });  
     }
     

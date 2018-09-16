@@ -20,7 +20,6 @@ export class UsersProvider {
   users: User;
 
   constructor(public http: HttpClient) {
-    console.log('Hello UsersProvider Provider');
   }
 
   getUsers(){
@@ -30,7 +29,6 @@ export class UsersProvider {
   	return	this.http.get(this.url)
   		     .subscribe(res=>{
   		     	this.users = res as User;
-  	        	console.log("res "+res)
   	        })
   }
 
