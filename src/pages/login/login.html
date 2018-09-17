@@ -1,22 +1,56 @@
-<!--
+<!-- 
   Generated template for the LoginPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
 
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../static/styles.css">
+<link rel="stylesheet" type="text/css" href="./login.css">
+<body>
 
-</ion-header>
+   <ion-content padding>
+      <div class="container">
+        <div class="card col-md-4">
+          <div class="card-body">
+            <div class="title">
+              <h3>su salud</h3>
+            </div>
+            <div class="form-title">
+             <h5 class="card-title">Iniciar sesión</h5>
+              <p class="card-subtitle mb-2">Ingrese sus datos</p>
+            </div>
 
-<ion-content padding>
+            <div>
+              <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email"  [(ngModel)]="email">
+                </div>
+  
+                <div class="form-group">
+                  <input type="password" class="form-control" placeholder="Contraseña" name="pass" [(ngModel)]="pass">
+                </div>
+                <button ion-button class="boton col-md-12" (click)="logIn()">Ingresar</button>
+              </form>
+            </div> <!-- formulario -->
+          </div> <!-- cardbody -->
+        </div> <!-- /card -->
+      </div> <!-- /container -->
+    </ion-content>
 
-	<form>
-		<input type="text" name="email" [(ngModel)]="email" >
-		<input type="password" name="pass" [(ngModel)]="pass">
-		<button  ion-button color="dark" (click)="logIn()" >ingresar</button>
-	</form>
-</ion-content>
+  </body>
+</html>
+
+ <!-- <form>
+      <input type="text" name="email" [(ngModel)]="email" >
+      <input type="password" name="pass" [(ngModel)]="pass">
+      <button  ion-button color="dark" (click)="logIn()" >ingresar</button>
+     </form> 
