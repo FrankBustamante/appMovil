@@ -16,32 +16,32 @@
 
     <div class="container">
 
-      <div class="row col-md-5 bienvenida">
+      <div class="row col-md-5 col-12 bienvenida">
 
-        <div class="col-md-6">
+        <div class="col-md-6 col-6">
           <h3 style="color:#0033A0"> Bienvenido</h3>
           <p style="color: #0033A0">{{name}}</p>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 col-6">
           <button class="boton-welcome" (click)="logOut()">Cerrar Sesión</button>
         </div>
       </div>
 
-       <div class="row col-md-5 opciones">
-        <div class="col-md-5 opcion">
+       <div class="row col-md-5 col-12 opciones">
+        <div class="col-md-6 col-5 opcion">
           <p>solicitar nueva cita</p>
           <button (click)="openNewCite()"> Solicitar</button>
         </div>
-        <div class="col-md-5 opcion">
+        <div class="col-md-6 col-5 opcion">
           <p>Ver todas mis citas</p>
           <button (click)="openNewCite()">Ver</button>
         </div>
       </div>
 
-      <div class="body col-md-5">
-        <h5 class="frase col-md-12">Tu felicidad es reflejo de tu salud</h5>
-        <img src="../static/img/welcome.jpg" alt="">
+      <div class="body col-md-5 col-12">
+        <h5 class="frase col-md-12 col-11">Tu felicidad es reflejo de tu salud</h5>
+        <img src="../static/img/welcome.jpg" class="col-md-12 col-12" alt="">
       </div>
 
     </div>

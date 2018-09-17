@@ -1,10 +1,11 @@
 
 
 .bienvenida{
+	background-color: white;
 	padding: 10px;
 	text-align: center;
 	margin: auto;
-	box-shadow: 0 0 10px 1px #ababab;
+	box-shadow: 0 0 13px 0px #d0d0d0;
 }
 
 .opcion{
@@ -12,9 +13,9 @@
 	margin: 20px auto 20px;
 	background-color: white;
 	display: block;
-	box-shadow: 0 0 10px 1px #ababab;
 	text-align: center;
 	color: gray;
+	box-shadow: 0 0 13px 0px #d0d0d0;
 }
 .opcion button{
 	background-color:transparent;
@@ -22,6 +23,7 @@
 	margin: auto;
 	display: block;
 	color: red;
+	
 }
 .opciones, .body {
 margin:auto;
@@ -41,6 +43,7 @@ margin:auto;
 .frase {
 	background-color:#00aec7;
 	padding: 10px;
+	width: auto;
 	text-align: center;
 	color: white;
 	margin: auto;
@@ -49,7 +52,7 @@ margin:auto;
 img{
 	margin: auto;
 	display: block;
-	width: 445px;
+	width: auto;
 }
 
 
