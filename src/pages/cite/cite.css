@@ -1,0 +1,29 @@
+.title{
+	font-size: 30px !important;
+	font-weight: bold;
+	background-image: url("../static/img/login.jpg");
+	background-size: 350px;
+	background-repeat: no-repeat;
+
+}
+.title h3{
+	padding: 150px 5px 10px 5px;
+	color: white;
+}
+
+.form-title{
+	background-color:#00aec7; 
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.formulario{
+	margin: auto;
+}
+
+.form-title h5,p{
+	padding-top: 5px;
+	color: white;
+}
+.boton{
+	margin-top: 50px
+}

@@ -4,29 +4,61 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../static/styles.css">
+<link rel="stylesheet" type="text/css" href="./cite.css">
+<body>
+
+
+<ion-content padding>
+
+<div class="container col-12">
+  <div class="form-title">
+      <h5 class="card-title">Solicitar Cita</h5>
+      <p class="card-subtitle mb-2"><span style="font-weight: bold">Nota importante:</span></br> 
+        la solicitud de citas es solo para medellin</p>
+    </div>
+    <div class="col-md-4 col-11 formulario">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escriba el tipo de cita" name="cite.type"   [(ngModel)]="cite.type">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Medico" name="cite.medic" [(ngModel)]="cite.medic">
+        </div>
+         <div class="form-group">
+            <input type="date" class="form-control" placeholder="Medico" name="cite.date"  [(ngModel)]="cite.date">
+        </div>
+        <button ion-button class="boton col-md-12 col-12" (click)="addCite()">Enviar información
+        </button>
+      </form>
+  </div>
+</ion-content>
+</body>
+
+<!--
 <ion-header>
 
   <ion-navbar>
     <ion-title>Solicitar Cita</ion-title>
     <ion-content padding>
-    	<p>Nota: 
-    		la solicitud de citas es solo para medellin
-    	</p>
 </ion-content>
   </ion-navbar>
 
-</ion-header>
-
-
-<ion-content padding>
-
-	<form>
-		<input type="text" name="cite.type" [(ngModel)]="cite.type">
-		<input type="text" name="cite.medic" [(ngModel)]="cite.medic">
-		<input type="text" name="cite.date" [(ngModel)]="cite.date">
-		<button (click)="addCite()" >
-			Solicitar
-		</button>
-	</form>
-
-</ion-content>
+</ion-header> <form>
+    <input type="text" name="cite.type" [(ngModel)]="cite.type">
+    <input type="text" name="cite.medic" [(ngModel)]="cite.medic">
+    <input type="text" name="cite.date" [(ngModel)]="cite.date">
+    <button (click)="addCite()" >
+      Solicitar
+    </button>
+  </form> -->
