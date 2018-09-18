@@ -12,9 +12,9 @@
   <title>Login</title>
 </head>
 
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="../static/styles.css">
-<link rel="stylesheet" type="text/css" href="./login.css">
+<!--  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../static/styles.css">
+<link rel="stylesheet" type="text/css" href="../src/pages/login/login.scss"> -->
 <body>
 
    <ion-content padding>
@@ -38,7 +38,7 @@
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Contraseña" name="pass" [(ngModel)]="pass">
                 </div>
-                <button ion-button class="boton col-md-12" (click)="logIn()">Ingresar</button>
+                <button ion-button class="boton col-md-12" (click)="logIn()" >Ingresar</button>
               </form>
             </div> <!-- formulario -->
           </div> <!-- cardbody -->
@@ -49,8 +49,8 @@
   </body>
 </html>
 
- <!-- <form>
+  <!-- <form>
       <input type="text" name="email" [(ngModel)]="email" >
       <input type="password" name="pass" [(ngModel)]="pass">
       <button  ion-button color="dark" (click)="logIn()" >ingresar</button>
-     </form> 
+     </form>  -->
