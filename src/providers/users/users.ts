@@ -17,7 +17,7 @@ export class UsersProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/user";
   urlLocal = "http://localHost:3000/api/user";
-  url= this.urlLocal;
+  url= this.urlApi;
   users: User;
   httpOptions = {
         headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})
