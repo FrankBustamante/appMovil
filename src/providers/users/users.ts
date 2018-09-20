@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { User } from '../../models/user';
+import { environment }from '../../environments/environments';
 
 
 
@@ -16,8 +17,11 @@ export class UsersProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/user";
   urlLocal = "http://localHost:3000/api/user";
-  url= this.urlApi;
+  url= this.urlLocal;
   users: User;
+  httpOptions = {
+        headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})
+      };
 
   constructor(public http: HttpClient) {
   }
@@ -26,10 +30,15 @@ export class UsersProvider {
       //let token =this.auth.getToken();  
   		//let headers = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
       
-  	return	this.http.get(this.url)
-  		     .subscribe(res=>{
-  		     	this.users = res as User;
-  	        })
+  	return	new Promise(resolve =>{
+      this.http.get(`${this.url}/medic`, this.httpOptions)
+           .subscribe(res=>{
+
+             this.users = res as User;
+             console.log(`provider ${this.users[0].name}`);
+             resolve(this.users);
+            })
+    })
   }
 
  
