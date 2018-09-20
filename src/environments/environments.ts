@@ -9,5 +9,6 @@ export const environment = {
   	lastName: "",
   	phone: 0,
   	email:""
-  }
+  },
+  isLog: false
 };
