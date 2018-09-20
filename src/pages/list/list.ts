@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CitesProvider }from '../../providers/cites/cites';
 import { Cite } from '../../models/cites';
+import {CitePage} from '../cite/cite';
 
 @Component({
   selector: 'page-list',
@@ -24,6 +25,9 @@ export class ListPage {
       let r: any = resolve;
       this.cites = r.cites;
     });    
+  }
+openNewCite(){
+    this.navCtrl.push(CitePage);
   }
 
   deleteCite(cite){
