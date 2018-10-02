@@ -27,11 +27,11 @@ export class ListPage {
   }
 
   deleteCite(cite){
-    if(confirm('desea elminar la cita??')){
+    
       this.citesS.deleteCite(cite).then(resolve =>{
         this.getCites();
       });  
-    }
+    
     
   }
 

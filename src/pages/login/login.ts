@@ -37,7 +37,6 @@ export class LoginPage {
   logIn(){
   	this.auth.signIn(this.pass, this.email).then(resolve =>{
       environment.isLog = this.auth.resp.ok;
-      
   		if(this.auth.resp.ok) {
         environment.TOKEN = this.auth.resp.token;
         environment.user = this.auth.resp.user;

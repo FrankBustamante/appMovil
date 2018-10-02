@@ -22,7 +22,7 @@ export class AuthProvider {
     
   }
 
-    signIn(pass, email){
+  signIn(pass, email){
     //let token =this.auth.getToken();             
    // let headerT = new Headers({'Authorization':`Bearer ${token.token}`,'Content-Type':'application/json'});
    const httpOptions = {

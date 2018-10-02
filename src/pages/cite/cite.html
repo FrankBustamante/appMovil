@@ -35,7 +35,7 @@
         <div class="form-group">
            <select class="form-control" name="cite.medic" [(ngModel)]="cite.medic">
               <option value="" selected>-seleccione un medico-</option>
-              <option *ngFor="let m of medics" value="{{m._id}}">{{m.name}}</option>
+              <option *ngFor="let m of medics" value="{{m.name}}">{{m.name}}</option>
             </select> 
             <!-- <input type="text" class="form-control" placeholder="Medico" name="cite.medic" [(ngModel)]="cite.medic"> -->
         </div>

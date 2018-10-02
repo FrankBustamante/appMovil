@@ -6,6 +6,7 @@ import { ListPage }from '../list/list';
 import { CitePage }from '../cite/cite';
 import { MyApp }from '../../app/app.component';
 import { environment }from '../../environments/environments';
+import { TabsPage }from '../tabs/tabs';
 
 @Component({
   selector: 'page-home',
@@ -31,7 +32,8 @@ export class HomePage {
     console.log(`token: ${environment.TOKEN}  user: ${environment
       .user}`);
     environment.isLog = false;
-    this.navCtrl.setRoot(MyApp);
+    this.navCtrl.setRoot(TabsPage);
+
   }
 
   openPage(page) {
