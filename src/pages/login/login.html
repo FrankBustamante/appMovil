@@ -11,9 +11,6 @@
 <link rel="stylesheet" type="text/css" href="../src/pages/login/login.scss"> -->
 
    <ion-content padding>
-      <div class="container">
-        <div class="card col-md-4 col-12">
-          <div class="card-body">
             <div class="title">
               <h3>su salud</h3>
             </div>
@@ -22,7 +19,6 @@
               <p class="card-subtitle mb-2">Ingrese sus datos</p>
             </div>
 
-            <div>
               <form>
                 <div class="form-group">
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email"  [(ngModel)]="email">
@@ -31,12 +27,8 @@
                 <div class="form-group">
                   <input type="password" class="form-control" placeholder="Contraseña" name="pass" [(ngModel)]="pass">
                 </div>
-                <button ion-button class="boton col-md-12" (click)="logIn()" >Ingresar</button>
+                <button class="botonIngresar" (click)="logIn()" >Ingresar</button>
               </form>
-            </div> <!-- formulario -->
-          </div> <!-- cardbody -->
-        </div> <!-- /card -->
-      </div> <!-- /container -->
     </ion-content>
 
 
