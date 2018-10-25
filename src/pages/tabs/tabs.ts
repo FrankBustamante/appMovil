@@ -21,11 +21,19 @@ export class TabsPage {
 
   }
 
+  ionViewDidLeave(){
+    this.isLog = environment.isLog;
+  }
+
   ionViewWillEnter(){
     this.isLog = environment.isLog;
     console.log(this.isLog);
     if(!this.isLog) {
     	this.navCtrl.setRoot(MyApp);
     }
+  }
+
+  log(){
+      this.navCtrl.setRoot(MyApp);
   }
 }

@@ -22,7 +22,7 @@ export class CitePage {
 		date: "",
     type : "",
     medic :"",
-    pacient : environment.user._id,
+    pacient : environment.user.name,
     check : null
 	}
 

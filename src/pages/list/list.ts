@@ -31,12 +31,11 @@ openNewCite(){
   }
 
   deleteCite(cite){
-    
+    if(confirm('Esta seguro que desea eliminar la Cita?...')) {     
       this.citesS.deleteCite(cite).then(resolve =>{
         this.getCites();
       });  
-    
-    
+    }    
   }
 
 }

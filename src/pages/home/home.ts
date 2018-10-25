@@ -7,6 +7,7 @@ import { CitePage }from '../cite/cite';
 import { MyApp }from '../../app/app.component';
 import { environment }from '../../environments/environments';
 import { TabsPage }from '../tabs/tabs';
+import {LoginPage}from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,7 @@ import { TabsPage }from '../tabs/tabs';
 })
 export class HomePage {
   name = environment.user.name;
-  
+  //tabBarElement:any = document.querySelector('#tabs ion-tabbar-section');
   constructor(public navCtrl: NavController, public navParam: NavParams) {
   }
 
@@ -32,7 +33,16 @@ export class HomePage {
     console.log(`token: ${environment.TOKEN}  user: ${environment
       .user}`);
     environment.isLog = false;
-    this.navCtrl.setRoot(TabsPage);
+    // this.navCtrl.goToRoot;
+    
+    // this.navCtrl.remove(1);
+   // document.getElementById('nav_bar').style.display = 'none';
+    //document.getElementById('login_page').style.display = 'block';
+    console.log();
+    
+     this.navCtrl.setRoot(LoginPage);
+    // this.navCtrl.setRoot(MyApp);
+   // document.getElementById('tabp').style.display = 'none';
 
   }
 

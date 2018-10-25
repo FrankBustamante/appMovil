@@ -15,19 +15,19 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  // pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+  constructor( public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     
     ) {
     this.initializeApp();
     //this.openPage(LoginPage);
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-    ];
+    // this.pages = [
+    //   { title: 'Home', component: HomePage },
+    //   { title: 'List', component: ListPage },
+    // ];
 
   }
 
@@ -38,6 +38,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
   }
 
   openPage(page) {
