@@ -3,33 +3,38 @@
 .bienvenida{
 	background-color: white;
 	padding: 10px;
-	text-align: center;
+	
 	margin: auto;
 	box-shadow: 0 0 13px 0px #d0d0d0;
 }
 
 .opcion{
 	padding: 10px;
-	margin: 20px auto 20px;
+	margin: 24px auto 27px;
 	background-color: white;
 	display: block;
 	text-align: center;
-	color: gray;
 	box-shadow: 0 0 13px 0px #d0d0d0;
 }
+
+	
+
+
 .opcion button{
 	background-color:transparent;
 	border:0;
+	font-size: 15px;
 	margin: auto;
 	display: block;
 	color: red;
 	
 }
-.opciones, .body {
-margin:auto;
+.opciones, .body{
+margin:auto !important;
 }
 
 .boton-welcome{
+	margin:auto;
 	padding: 10px;
 	font-size: 14px;
 	font-weight: bold;

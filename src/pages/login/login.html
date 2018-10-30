@@ -13,6 +13,8 @@
 
   <ion-navbar>
                 <div class="title">
+
+
               <h3>su salud</h3>
             </div>
             <div class="form-title">
@@ -26,14 +28,16 @@
 
 
               <form>
-                <div class="form-group">
+                <div class="form-group" padding>
                   <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email"  [(ngModel)]="email">
                 </div>
   
-                <div class="form-group">
+                <div class="form-group" padding>
                   <input type="password" class="form-control" placeholder="Contraseña" name="pass" [(ngModel)]="pass">
                 </div>
-                <button class="botonIngresar" (click)="logIn()" >Ingresar</button>
+                <div padding>
+                  <button class="botonIngresar" (click)="logIn()">Ingresar</button>
+                </div>
               </form>
     </ion-content>
 
