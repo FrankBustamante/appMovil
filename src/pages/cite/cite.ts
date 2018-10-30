@@ -21,8 +21,14 @@ export class CitePage {
 	cite: Cite = {
 		date: "",
     type : "",
-    medic :"",
-    pacient : environment.user.name,
+    medic : {
+      name : "",
+      _id : ""
+    },
+    pacient : { 
+      name : environment.user.name,
+      _id : environment.user._id
+    },
     check : null
 	}
 
@@ -43,11 +49,17 @@ export class CitePage {
   }
 
   addCite(){
-  	this.citeS.postCites(this.cite).then(resolve =>{
-  		this.cite.type = "";
-      this.cite.medic = "";
+    	this.citeS.postCites(this.cite).then(resolve =>{
+      this.cite.type = "";
+      this.cite.medic.name = "";
+      this.cite.medic._id = "";
       this.cite.date ="";
   	})
+  }
+
+  addMedic(m:any){
+      this.cite.medic.name = m.name
+      this.cite.medic._id = m._id
   }
 
 }
