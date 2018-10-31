@@ -10,7 +10,7 @@ import {CitePage} from '../cite/cite';
 })
 export class ListPage {
   
-  cites:Cite;
+  cites:Cite[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public citesS: CitesProvider) {  
   }
@@ -19,11 +19,17 @@ export class ListPage {
     this.getCites();
   }
 
+  ionViewDidEnter(){
+    this.getCites();
+  }
+
   getCites(){
-           
+    this.cites = [];
     this.citesS.getCites().then((resolve) =>{
       let r: any = resolve;
-      this.cites = r.cites;
+      if(r.cites.length){
+        this.cites = r.cites;
+      }
     });    
   }
 openNewCite(){

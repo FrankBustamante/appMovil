@@ -33,14 +33,19 @@
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escriba el tipo de cita" name="cite.type"   [(ngModel)]="cite.type">
         </div>
         <div class="form-group">
-           <select class="form-control" name="cite.medic">
+           <select class="input-select" name="cite.medic.name" (click)="viewH()"  [(ngModel)]="cite.medic.name" >
               <option value="" selected >-seleccione un medico-</option>
-              <option *ngFor="let m of medics" (click)="addMedic(m)" value="{{m._id}}">{{m.name}}</option>
+              <option *ngFor="let m of medics" value="{{m.name}} {{m._id}} "><span >{{m.name}}</span> </option>
             </select> 
             <!-- <input type="text" class="form-control" placeholder="Medico" name="cite.medic" [(ngModel)]="cite.medic"> -->
         </div>
          <div class="form-group">
-            <input type="date" class="form-control" placeholder="Medico" name="cite.date"  [(ngModel)]="cite.date">
+            <div *ngIf="viewH()"> 
+              <select class="input-select" name="cite.date"  [(ngModel)]="cite.date" >
+              <option value="" selected >-seleccione un horarios-</option>
+              <option *ngFor="let h of horarios" value="{{h.fecha}} {{h.hora}}"><span >{{h.fecha}} {{h.hora}}</span> </option>
+            </select> 
+            </div>
         </div>
         <button ion-button class="boton col-md-12 col-12" (click)="addCite()">Enviar información
         </button>

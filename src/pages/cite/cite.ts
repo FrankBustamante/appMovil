@@ -32,7 +32,9 @@ export class CitePage {
     check : null
 	}
 
-  medics;
+  medics;  
+  medic;
+  horarios;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public citeS: CitesProvider,
     public userS: UsersProvider) {
@@ -49,6 +51,7 @@ export class CitePage {
   }
 
   addCite(){
+    
     	this.citeS.postCites(this.cite).then(resolve =>{
       this.cite.type = "";
       this.cite.medic.name = "";
@@ -57,9 +60,16 @@ export class CitePage {
   	})
   }
 
-  addMedic(m:any){
-      this.cite.medic.name = m.name
-      this.cite.medic._id = m._id
+  viewH(){
+    if(this.cite.medic.name){
+      this.medics.forEach((item, index) =>{
+        if(item._id == this.cite.medic.name.split(" ")[1]){
+          this.horarios = item.horarios;
+        }
+      })
+      return true;
+    }
+    return false;
   }
 
 }

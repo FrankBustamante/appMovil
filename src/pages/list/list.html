@@ -26,7 +26,7 @@
           <button class="boton" (click)="openNewCite()">Solicitar nueva cita</button>
         </div>
 
-        <ion-list> 
+        <ion-list *ngIf="cites"> 
            <ion-item *ngFor="let c of cites" >
              <div class="cita col-11">
                <p style="color: #00aec7"> {{c.type}} </p>
