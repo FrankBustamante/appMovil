@@ -14,6 +14,7 @@
 .form-title{
 	background-color:#00aec7; 
 	padding: 10px;
+	margin-top:20px;
 	margin-bottom: 10px;
 }
 .formulario{
@@ -25,11 +26,32 @@
 	color: white;
 }
 .boton{
-	margin-top: 50px
+	 margin: 40px auto 30px auto;
+    display: block;
+    padding: 14px 27px;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: white;
+    background-color: #0033a0;
+    font-weight: 600;
+    border-radius: 0px 10px;
 }
 
 .input-select{
     width: 100%;	
     padding: 9px;
-    font-size: 21px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.card-subtitle{
+	    font-size: 17px;
+}
+
+.cuerpo{
+	background-color: #ececec;
+	padding:10px;
+}
+.citas{
+	
 }

@@ -16,28 +16,24 @@
 <body>
 
 <ion-content>
-  <div class="container col-12">
-
-        <div class="col-md-6 col-6">
-          <h3 style="color:#0033A0; padding: 5px">Mis citas</h3>
+          <div class="titulo">
+          <h3  class="">Mis citas</h3>
         </div>
 
-        <div>
+        <div class="cuerpo">
           <button class="boton" (click)="openNewCite()">Solicitar nueva cita</button>
-        </div>
-
-        <ion-list *ngIf="cites"> 
-           <ion-item *ngFor="let c of cites" >
-             <div class="cita col-11">
-               <p style="color: #00aec7"> {{c.type}} </p>
-               <p style="color: gray"> {{c.date}} </p>
-               <p style="color: black"> {{c.medic.name}} </p>
-               <button ion-button color="danger" (click)="deleteCite(c)" ><ion-icon name="trash"></ion-icon></button>
-             </div>
-           </ion-item>
-         </ion-list>
-
-  </div>
+        
+          <ion-list *ngIf="cites"> 
+            <ion-item class="citas" *ngFor="let c of cites" >
+              <div class="cita col-11">
+                <p style="color: #00aec7; font-size: 16px;"> {{c.type}} </p>
+                <p style="color: gray"> {{c.date}} </p>
+                <p style="color: black;font-size: 16px;"> {{c.medic.name}} </p>
+                <button ion-button color="danger" (click)="deleteCite(c)" ><ion-icon name="trash"></ion-icon></button>
+               </div>
+            </ion-item>
+           </ion-list>
+      </div>
 </ion-content>
 
 
