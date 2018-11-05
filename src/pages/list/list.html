@@ -21,7 +21,8 @@
         </div>
 
         <div class="cuerpo">
-          <button class="boton" (click)="openNewCite()">Solicitar nueva cita</button>
+          <button class="boton" (click)="openNewCite()">  <ion-icon name="add-circle">
+Solicitar nueva cita</ion-icon></button>
         
           <ion-list *ngIf="cites"> 
             <ion-item class="citas" *ngFor="let c of cites" >
