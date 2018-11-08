@@ -15,7 +15,7 @@ export class CitesProvider {
 
 	urlApi:string="https://api-movil.herokuapp.com/api/cite";
   urlLocal="http://localhost:3000/api/cite";
-  url = this.urlLocal; 
+  url = this.urlApi; 
   cites:Cite;
   httpOptions = {
         headers: new HttpHeaders({'authorization': `Bearer ${environment.TOKEN}` ,'Content-Type':  'application/json','Accept':'application/json'})
