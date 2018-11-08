@@ -51,7 +51,8 @@ export class CitePage {
   }
 
   addCite(){
-    
+    this.cite.medic._id =  this.cite.medic.name.split(' ')[1]
+    console.log(this.cite.medic._id)
     	this.citeS.postCites(this.cite).then(resolve =>{
       this.cite.type = "";
       this.cite.medic.name = "";
